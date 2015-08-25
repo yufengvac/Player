@@ -1,7 +1,10 @@
 package activities;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,10 +12,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.vac.player.player.R;
@@ -30,6 +42,9 @@ public class TVseries extends FragmentActivity {
 	private TextView indicateTextview;
 	private MyViewPagerAdapter mAdaper;
 	private FragmentManager fm;
+    private PopupWindow popWindow;
+    private ImageView flag_image;
+    private TextView detail_textview_currentchannel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +64,9 @@ public class TVseries extends FragmentActivity {
 		moduleLinearlayout = (LinearLayout)findViewById(R.id.tvseries_linear_title);
 		hScrollView = (HorizontalScrollView)findViewById(R.id.tvserise_hScroll_bar);
 		indicateTextview = (TextView) findViewById(R.id.tvseries_tv_indicator);
+
+        flag_image =(ImageView) findViewById(R.id.tvserise_image_flag);
+        detail_textview_currentchannel = (TextView)findViewById(R.id.tvserises_text_curname);
 	}
 	
 	private void initFragment(){
@@ -133,6 +151,68 @@ public class TVseries extends FragmentActivity {
     
     public void toBack(View view){
     	finish();
+    }
+
+    /**
+     * @author yufengvac
+     * @description 显示更多的频道
+     */
+
+    @SuppressLint("NewApi")
+	public void toShowMoreChannel(View view){
+        View popView = LayoutInflater.from(this).inflate(R.layout.menu_channel, null);
+        popWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popWindow.setOutsideTouchable(true);
+        popWindow.setFocusable(true);
+        popWindow.setTouchInterceptor(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                    TVseries.this.popWindow.dismiss();
+                    return false;
+                }
+                return false;
+                // 这里如果返回true的话，touch事件将被拦截
+                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+            }
+        });
+//		popWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.more_bg));
+        GridView gv = (GridView) popView.findViewById(R.id.menu_gv_channel);
+        final List<String> channelList = new ArrayList<>();
+        initChannelList(channelList);
+        ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(TVseries.this,android.R.layout.simple_list_item_1,channelList);
+        gv.setAdapter(mAdapter);
+        popWindow.showAsDropDown(findViewById(R.id.tvserise_bar), 0, 0, Gravity.RIGHT);
+
+        flag_image.setBackgroundResource(R.drawable.other_site_arrow_selected);
+        popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                flag_image.setBackgroundResource(R.drawable.other_site_arrow_normal);
+            }
+        });
+
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedChannel = channelList.get(position);
+                detail_textview_currentchannel.setText(selectedChannel);
+                popWindow.dismiss();
+            }
+        });
+	}
+
+    private void initChannelList(List<String> list){
+        list.add("电视剧");list.add("电影");list.add("综艺");list.add("动漫");
+        list.add("音乐");list.add("咨询");list.add("会员");list.add("体育");
+        list.add("教育");list.add("纪录片");list.add("原创");list.add("汽车");
+        list.add("科技");list.add("游戏");list.add("生活");list.add("时尚");
+        list.add("旅游");list.add("亲子");list.add("搞笑");list.add("财经");
+        list.add("公益");list.add("少儿");list.add("拍客");list.add("自频道");
+        list.add("特卖");list.add("品牌官网");list.add("精彩专题");list.add("整点档");
+        list.add("直播");
+
     }
     
 }

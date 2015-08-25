@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/tvserise_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/home_title_bg"
@@ -28,7 +29,9 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="toShowMoreChannel">
 
             <TextView
                 android:id="@+id/tvserises_text_curname"
@@ -38,6 +41,7 @@
                 android:clickable="true"
                 android:paddingLeft="10dp"
                 android:text="电视剧"
+                android:onClick="toShowMoreChannel"
                 android:textSize="18sp" />
 
             <ImageView
@@ -45,8 +49,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:clickable="true"
                 android:layout_toRightOf="@id/tvserises_text_curname"
-                android:background="@drawable/other_site_arrow_normal" />
+                android:background="@drawable/selector_detail_serises_tragle" />
         </RelativeLayout>
 
         <LinearLayout
