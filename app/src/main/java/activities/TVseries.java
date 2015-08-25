@@ -181,7 +181,7 @@ public class TVseries extends FragmentActivity {
         GridView gv = (GridView) popView.findViewById(R.id.menu_gv_channel);
         final List<String> channelList = new ArrayList<>();
         initChannelList(channelList);
-        ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(TVseries.this,android.R.layout.simple_list_item_1,channelList);
+        ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(TVseries.this,R.layout.menu_more_channel,channelList);
         gv.setAdapter(mAdapter);
         popWindow.showAsDropDown(findViewById(R.id.tvserise_bar), 0, 0, Gravity.RIGHT);
 
