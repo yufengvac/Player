@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/selector_linear_bg"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:id="@+id/more_image_history"
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selector_btn_history" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="记录" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_downloading" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="下载" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_upload" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="上传" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_saosao" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="扫扫" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_recommend" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="应用" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_rating" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="评分" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_feedback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="反馈" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/activity_more_menu_bg_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_linear_bg"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_more_image_padding"
+        android:paddingTop="@dimen/activity_more_image_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/activity_more_image"
+            android:layout_height="@dimen/activity_more_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_setting" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="设置" />
+    </LinearLayout>
+
+</LinearLayout>

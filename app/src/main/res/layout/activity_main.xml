@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/activity_linear_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/home_title_bg"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="7dp" >
+
+            <ImageView
+                android:id="@+id/activity_home_title_image"
+                android:layout_width="38dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/icon_youku"
+                android:contentDescription="youku"
+                android:visibility="visible" />
+            
+            <TextView
+                android:id="@+id/activity_home_title" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/activity_btn_search"
+                style="@style/home_bar_button"
+                android:background="@drawable/seletor_btn_search"/>
+
+            <Button
+                android:id="@+id/activity_btn_vip"
+                style="@style/home_bar_button"
+                android:background="@drawable/seletor_btn_vip" />
+
+            <Button
+                android:id="@+id/activity_btn_game"
+                style="@style/home_bar_button"
+                android:background="@drawable/seletor_btn_game" />
+
+            <Button
+                android:id="@+id/activity_btn_more"
+                style="@style/home_bar_button"
+                android:background="@drawable/seletor_btn_more" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_viewpager_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </android.support.v4.view.ViewPager>
+
+    <RadioGroup
+        android:id="@+id/activity_rg_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/home_title_bg"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <RadioButton
+            android:id="@+id/activity_rb_home"
+            style="@style/myRadioButton"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_home"
+            android:textColor="@color/home_blue"
+            android:text="@string/activity_home" />
+
+        <RadioButton
+            android:id="@+id/activity_rb_channel"
+            style="@style/myRadioButton"
+            android:drawableTop="@drawable/selector_channel"
+            android:text="@string/activity_channel"
+            android:textColor="@drawable/selector_home_text"/>
+
+        <RadioButton
+            android:id="@+id/activity_rb_subscribe"
+            style="@style/myRadioButton"
+            android:drawableTop="@drawable/selector_subscribe"
+            android:text="@string/activity_subscribe"
+            android:textColor="@drawable/selector_home_text" />
+
+        <RadioButton
+            android:id="@+id/activity_rb_user"
+            style="@style/myRadioButton"
+            android:drawableTop="@drawable/selector_user"
+            android:text="@string/activity_user"
+            android:textColor="@drawable/selector_home_text" />
+    </RadioGroup>
+
+</LinearLayout>

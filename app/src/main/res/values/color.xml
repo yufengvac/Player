@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="home_gray">#aaa</color>
+    <color name="home_blue">#2FB3FF</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="divide">#D1D1D1</color>
+
+    <color name="home_light_gray">#2aaa</color>
+</resources>
