@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -33,7 +32,7 @@ import adapters.MyViewPagerAdapter;
 import fragments.Detail_fra;
 
 
-public class TVseries extends FragmentActivity {
+public class DetailShow extends FragmentActivity {
 
 	private ViewPager viewPager;
 	private LinearLayout moduleLinearlayout;
@@ -45,7 +44,7 @@ public class TVseries extends FragmentActivity {
     private PopupWindow popWindow;
     private ImageView flag_image;
     private TextView detail_textview_currentchannel;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -166,41 +165,43 @@ public class TVseries extends FragmentActivity {
         popWindow.setFocusable(true);
         popWindow.setTouchInterceptor(new View.OnTouchListener() {
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                    TVseries.this.popWindow.dismiss();
-                    return false;
-                }
-                return false;
-                // 这里如果返回true的话，touch事件将被拦截
-                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
-            }
-        });
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+					DetailShow.this.popWindow.dismiss();
+					return false;
+				}
+				return false;
+				// 这里如果返回true的话，touch事件将被拦截
+				// 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+			}
+		});
 //		popWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.more_bg));
         GridView gv = (GridView) popView.findViewById(R.id.menu_gv_channel);
-        final List<String> channelList = new ArrayList<>();
+        final List<String> channelList = new ArrayList<String>();
         initChannelList(channelList);
-        ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(TVseries.this,R.layout.menu_more_channel,channelList);
+        ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(DetailShow.this,R.layout.menu_more_channel,channelList);
         gv.setAdapter(mAdapter);
         popWindow.showAsDropDown(findViewById(R.id.tvserise_bar), 0, 0, Gravity.RIGHT);
 
         flag_image.setBackgroundResource(R.drawable.other_site_arrow_selected);
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                flag_image.setBackgroundResource(R.drawable.other_site_arrow_normal);
-            }
-        });
+			@Override
+			public void onDismiss() {
+				flag_image.setBackgroundResource(R.drawable.other_site_arrow_normal);
+			}
+		});
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedChannel = channelList.get(position);
-                detail_textview_currentchannel.setText(selectedChannel);
-                popWindow.dismiss();
-            }
-        });
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String selectedChannel = channelList.get(position);
+				detail_textview_currentchannel.setText(selectedChannel);
+				popWindow.dismiss();
+//				mListener.rechooseshow(channelList.get(position));
+				((rechooseshowListener)fm.getFragments().get(0)).rechooseshow(channelList.get(position));
+			}
+		});
 	}
 
     private void initChannelList(List<String> list){
@@ -214,5 +215,10 @@ public class TVseries extends FragmentActivity {
         list.add("直播");
 
     }
+
+
+	public interface rechooseshowListener{
+		public void rechooseshow(String name);
+	}
     
 }

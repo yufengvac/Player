@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.vac.player.player.R;
 
-import activities.TVseries;
+import activities.DetailShow;
 
 
 public class HomeFragment extends Fragment {
@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 			
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getActivity(), TVseries.class);
+				Intent intent = new Intent(getActivity(), DetailShow.class);
 				startActivity(intent);
 			}
 		});

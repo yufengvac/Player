@@ -3,10 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <TextView 
-        android:id="@+id/tvserise_fra_textView"
+    
+    
+    <GridView 
+        android:id="@+id/detail_gv_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"/>
+        android:numColumns="3"
+        android:horizontalSpacing="1dp"
+        ></GridView>
 
 </LinearLayout>
